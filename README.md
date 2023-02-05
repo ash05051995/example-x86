@@ -46,6 +46,20 @@ std::string ownerid = "JjPMBVlIOd"; // ownerid, found in account settings. click
 std::string secret = "db40d586f4b189e04e5c18c3c94b7e72221be3f6551995adc05236948d1762bc"; // app secret, the blurred text on licenses tab and other tabs
 std::string version = "1.0"; // leave alone unless you've changed version on website
 std::string url = "https://keyauth.win/api/1.2/"; // change if you're self-hosting
-```
 
 api KeyAuthApp(name, ownerid, secret, version, url);
+```
+
+# Initialize application
+
+You must call this function prior to using any other KeyAuth function. Otherwise the other KeyAuth function won't work.
+
+```
+KeyAuthApp.init();
+if (!KeyAuthApp.data.success)
+{
+	std::cout << skCrypt("\n Status: ") << KeyAuthApp.data.message;
+	Sleep(1500);
+	exit(0);
+}
+```
