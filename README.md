@@ -30,3 +30,11 @@ note Visual Studio must be installed.
 * Open x86 Native Tools Command Prompt for VS 2022 and then open the curl folder you need to use command "cd " then add the (winbuild) folder example here: ```cd C:\Users\Ash\Desktop\curl-7.87.0\winbuild```
 
 * Use the below command to build curl for x86 machine code, static. ```nmake /f Makefile.vc mode=static VC=15 debug=no machine=x86```
+
+* Once curl has been built go to the (builds) folder then the (libcurl-vc15-x86-release-static-ipv6-sspi-schannel) here you will find the (include) folder and the (lib) folder. You need need to replace the x64 lib curl header files as well as the curl lib for this to work so just drag and drop and rename the lib file to (libcurl) most likly the new lib you compiled will have the name of (libcurl_a). This will save you from eiditing any properties.
+
+* In the (auth.cpp) file in the library example make sure you remove the xor strings from the following https://github.com/KeyAuth/keyauth-cpp-library/blob/aef1fa7e0ff6e756d43f4b21f659e1264afdcc1a/auth.cpp#L1036 and https://github.com/KeyAuth/keyauth-cpp-library/blob/aef1fa7e0ff6e756d43f4b21f659e1264afdcc1a/auth.cpp#L1045 this will help prevent errors.
+
+* Remove the integrity check to also prevent errors found here https://github.com/KeyAuth/keyauth-cpp-library/blob/aef1fa7e0ff6e756d43f4b21f659e1264afdcc1a/auth.cpp#L1219 and here https://github.com/KeyAuth/keyauth-cpp-library/blob/aef1fa7e0ff6e756d43f4b21f659e1264afdcc1a/auth.cpp#L1223
+
+If the above steps are followed correctly you will now be able to run your example using the x86 lib of course you must replace the (library_x64.lib) with your new lib (library_x86).
