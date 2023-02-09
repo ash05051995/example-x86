@@ -27,10 +27,6 @@ note Visual Studio must be installed.
 
 * Download curl from this link here: https://curl.se/download.html
 
-* Open x86 Native Tools Command Prompt for VS 2022 and then open the curl folder you need to use command "cd " then add the (winbuild) folder example here: 
+* Open x86 Native Tools Command Prompt for VS 2022 and then open the curl folder you need to use command "cd " then add the (winbuild) folder example here: ```cd C:\Users\Ash\Desktop\curl-7.87.0\winbuild```
 
-```cd C:\Users\Ash\Desktop\curl-7.87.0\winbuild```
-
-* Use the below command to build curl for x86 machine code, static.
-
-```nmake /f Makefile.vc mode=static VC=15 debug=no machine=x86```
+* Use the below command to build curl for x86 machine code, static. ```nmake /f Makefile.vc mode=static VC=15 debug=no machine=x86```
