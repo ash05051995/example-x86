@@ -8,6 +8,25 @@ The library x86 lib within this example has a modified version of the ic which w
 
 ![image](https://raw.githubusercontent.com/ash05051995/example-x86/main/view.gif)
 
+# Debugging And Thoughts
+
+So The code only checks the integrity of a specific section of the module, specified by the section_name parameter (.text). This means that if the tampering occurred in a different section, the code will not detect it. The code only checks the integrity of the module when it is first loaded into memory. If the tampering occurs after the module is loaded, the code will not detect it, unless used within a thread or loop.
+
+To debug the program to verify it works I used the code below to preform the check
+
+```int main()
+{
+    if (check_section_integrity(".text", false))
+    {
+        MessageBox(NULL, "Do not tamper with this application!", "Error", MB_OK | MB_ICONERROR);
+        return 0;
+    }
+    // Your application code here
+    return 0;
+}```
+
+![image](https://raw.githubusercontent.com/ash05051995/example-x86/main/debug.gif)
+
 # About the extra layer of protection
 
 It checks the integrity of a section of a module in memory and potentially repairs it. In auth.cpp in the standard lib the module used is (.text) see here https://github.com/KeyAuth/keyauth-cpp-library/blob/aef1fa7e0ff6e756d43f4b21f659e1264afdcc1a/auth.cpp#L1219
