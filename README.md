@@ -17,3 +17,20 @@ The section is specified by its name, in our case as above (.text). The function
 Next, the function iterates over all sections in the module, and if the name of the current section matches section_name and it is executable, the code will compare the contents of the section in memory with the contents of the same section in the file on disk. If any difference is found, and fix is true, the code will modify the in-memory copy to match the disk copy.
 
 The function returns false if the section is found to be intact, otherwise it returns true.
+
+# Extra Information
+
+Compile curl if you wish to do this your self:
+
+* Open native tools x86 which can be found here most likely C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Visual Studio 2022\Visual Studio Tools\VC
+note Visual Studio must be installed.
+
+* Download curl from this link here: https://curl.se/download.html
+
+* Open x86 Native Tools Command Prompt for VS 2022 and then open the curl folder you need to use command "cd " then add the (winbuild) folder example here: 
+
+```cd C:\Users\Ash\Desktop\curl-7.87.0\winbuild```
+
+* Use the below command to build curl for x86 machine code, static.
+
+```nmake /f Makefile.vc mode=static VC=15 debug=no machine=x86```
