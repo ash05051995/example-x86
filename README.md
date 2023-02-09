@@ -14,7 +14,8 @@ So The code only checks the integrity of a specific section of the module, speci
 
 To debug the program to verify it works I used the code below to preform the check
 
-```int main()
+```
+int main()
 {
     if (check_section_integrity(".text", false))
     {
@@ -23,7 +24,8 @@ To debug the program to verify it works I used the code below to preform the che
     }
     // Your application code here
     return 0;
-}```
+}
+```
 
 ![image](https://raw.githubusercontent.com/ash05051995/example-x86/main/debug.gif)
 
