@@ -5,3 +5,5 @@ Main tool used hex editor, to modify .text values of our application, by replaci
 There for certain Xor strings were removed during the curl initialization to prevent errors, as well as the integrity check. 
 
 The library x86 lib within this example has a modified version of the ic which will help add an extra layer of protection.
+
+![image](https://raw.githubusercontent.com/ash05051995/example-x86/main/view.gif)
