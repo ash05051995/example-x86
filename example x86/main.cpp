@@ -1,18 +1,24 @@
 #include "main.h"
 
-/* I'll update this program from time to time, but for now there's something bugging me with the code 
+/* 
+   I'll update this program from time to time, but for now there's something bugging me with the code 
    and also which many people fail to understand.
    The use of  (standard) on each line is use of bad practice... You should use name spaces rather
    than using (lib) on each line....
 */
 
-using namespace std;
-
-/*
-std::count (pronounced "standard see-out") to write simple text
-std::cin (pronounced "standard see-in") to read text and numbers entered using the keyboard
-std::endl (pronounced "standard end-line) to end current line
+/* 
+   Use namespace if using multiple scopes from the std namespace
+   using namespace std;
 */
+
+/* 
+   std::count (pronounced "standard see-out") to write simple text
+   std::cin (pronounced "standard see-in") to read text and numbers entered using the keyboard
+   std::endl (pronounced "standard end-line) to end current line
+*/
+
+using std::cout, std::string, std::cin;
 
 int main()
 {
