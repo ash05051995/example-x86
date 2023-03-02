@@ -93,10 +93,13 @@ int main()
 	string subs;
 	for (string value : KeyAuthApp.data.subscriptions)subs += value + " ";
 	cout << subs;
-
-	string expiry = remove_letters(tm_to_readable_time(timet_to_tm(string_to_timet(KeyAuthApp.data.expiry))));
-
-	cout << skCrypt("\n\n subscription expiry:") << expiry.c_str();
+	
+	for (int i = 0; i < KeyAuthApp.data.subscriptions.size(); i++) 
+	{
+		auto sub = KeyAuthApp.data.subscriptions.at(i);
+		string expiry = remove_letters(tm_to_readable_time(timet_to_tm(string_to_timet(sub.expiry))));
+		cout << skCrypt("\n\n subscription expiry:") << expiry.c_str();
+	}
 
 	KeyAuthApp.check();
 
