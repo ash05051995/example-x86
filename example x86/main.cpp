@@ -88,17 +88,13 @@ int main()
 	cout << skCrypt("\n hardware id: ") << KeyAuthApp.data.hwid;
 	cout << skCrypt("\n creation date: ") << tm_to_readable_time(timet_to_tm(string_to_timet(KeyAuthApp.data.createdate)));
 	cout << skCrypt("\n last login: ") << tm_to_readable_time(timet_to_tm(string_to_timet(KeyAuthApp.data.lastlogin)));
-	cout << skCrypt("\n sub name(s): ");
 
-	string subs;
-	for (string value : KeyAuthApp.data.subscriptions)subs += value + " ";
-	cout << subs;
-	
 	for (int i = 0; i < KeyAuthApp.data.subscriptions.size(); i++) 
 	{
 		auto sub = KeyAuthApp.data.subscriptions.at(i);
-		string expiry = remove_letters(tm_to_readable_time(timet_to_tm(string_to_timet(sub.expiry))));
-		cout << skCrypt("\n\n subscription expiry:") << expiry.c_str();
+		std::cout << skCrypt("\n sub name(s): ") << sub.name;
+
+		cout << skCrypt("\n\n subscription expiry:") << remove_letters(tm_to_readable_time(timet_to_tm(string_to_timet(sub.expiry))));
 	}
 
 	KeyAuthApp.check();
